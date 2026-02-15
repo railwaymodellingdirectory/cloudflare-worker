@@ -1,10 +1,16 @@
-import * as PostalMime from 'postal-mime';
+import PostalMime from 'postal-mime';
 
 export default {
   async email(message, env, ctx) {
-    const parser = new PostalMime.default();
-    const rawEmail = new Response(message.raw);
-    const email = await parser.parse(await rawEmail.arrayBuffer());
-    console.log(email);
+    const email = await PostalMime.parse(message.raw, {
+        attachmentEncoding: 'base64'
+    });
+
+    console.log('Subject', email.subject);
+    console.log('HTML', email.html);
+
+    email.attachments.forEach((attachment) => {
+      console.log('Attachment', attachment.filename, attachment.content);
+    });
   },
 };
