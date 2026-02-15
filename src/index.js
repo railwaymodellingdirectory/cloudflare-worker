@@ -12,7 +12,7 @@ export default {
 	attachments = []
 
     email.attachments.forEach((attachment) => {
-      const attachment = {
+      attachment = {
 		filename: attachment.filename,
 		attachment: attachment.content
 	  }
