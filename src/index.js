@@ -9,22 +9,24 @@ export default {
     console.log('Subject', email.subject);
     console.log('HTML', email.html);
 
-	attachments = []
+	const attachments = []
 
     email.attachments.forEach((attachment) => {
-      attachment = {
+      const thisAttachment = {
 		filename: attachment.filename,
 		attachment: attachment.content
 	  }
-	  attachments.push(attachment)
+	  attachments.push(thisAttachment)
     });
 
 	const emailContent = {
         subject: email.subject,
         from: email.html,
-        body: rawEmail,
+        body: email.text,
 		attachments: attachments
       };
+
+	  const webhookURL = 'https://n8n.johnb.dev/webhook/ae066b81-849c-4172-b560-1cc18684ec31';
 
       // Post the email to the webhook
       await fetch(webhookURL, {
