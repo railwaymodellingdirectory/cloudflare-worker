@@ -26,10 +26,8 @@ export default {
 		attachments: attachments
       };
 
-	  //const webhookURL = 'https://n8n.johnb.dev/webhook-test/ae066b81-849c-4172-b560-1cc18684ec31';
+    const webhookURL = `${env.webhookURL}`;
 
-    const webhookURL = 'https://n8n.johnb.dev/webhook/ae066b81-849c-4172-b560-1cc18684ec31';
-    
       // Post the email to the webhook
       await fetch(webhookURL, {
         method: 'POST',
