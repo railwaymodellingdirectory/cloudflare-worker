@@ -32,12 +32,8 @@
 	 */
 	// "vars": {  "MY_VARIABLE": "production_value" }
 	"env": {
-		"preview": {
-			"vars": { "webhookURL": "https://n8n.johnb.dev/webhook-test/ae066b81-849c-4172-b560-1cc18684ec31" }
-		},
-		"production": {
-			"vars": { "webhookURL": "https://n8n.johnb.dev/webhook/ae066b81-849c-4172-b560-1cc18684ec31" }
-		}
+		"preview": {},
+		"production": {}
 	}
 	/**
 	 * Static Assets
